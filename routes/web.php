@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('dashboard.landing-page.landing');
+});
+
+Route::get('/blog', function () {
+    return view('dashboard.blog.data-blog');
 });
