@@ -21,6 +21,6 @@ Route::get('/blogs', function () {
     return view('dashboard.blog.layouts.master-blog');
 });
 
-Route::get('/blogs/blog-details', function () {
+Route::get('blogs.blog-details', function () {
     return view('dashboard.blog.show-blog');
 });

@@ -25,7 +25,7 @@
             </p>
           </div>
           <span>
-            <a href="blogs/blog-details" class="ready-btn">Read more</a>
+            <a href="blogs.blog-details" class="ready-btn">Read more</a>
           </span>
         </div>
       </div>
