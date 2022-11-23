@@ -27,7 +27,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4">
-            <div class="page-head-blog">
+            {{-- <div class="page-head-blog">
               <div class="single-blog-page">
                 <!-- search option start -->
                 <form action="#">
@@ -180,7 +180,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
           <!-- End left sidebar -->
           <!-- Start single blog -->

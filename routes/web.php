@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/blog', function () {
-    return view('dashboard.blog.data-blog');
+    return view('dashboard.blog.layouts.master-blog');
+});
+
+Route::get('/blog-details', function () {
+    return view('dashboard.blog.show-blog');
 });
