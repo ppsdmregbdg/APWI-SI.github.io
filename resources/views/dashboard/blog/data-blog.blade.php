@@ -3,7 +3,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="single-blog">
           <div class="single-blog-img">
-            <a href="/blog-details">
+            <a href="blogs/blog-details">
               <img src="assets/img/blog/1.jpg" alt="">
             </a>
           </div>
@@ -25,7 +25,7 @@
             </p>
           </div>
           <span>
-            <a href="/blog-details" class="ready-btn">Read more</a>
+            <a href="blogs/blog-details" class="ready-btn">Read more</a>
           </span>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="single-blog">
           <div class="single-blog-img">
-            <a href="/blog-details">
+            <a href="blogs/blog-details">
               <img src="assets/img/blog/2.jpg" alt="">
             </a>
           </div>
@@ -55,7 +55,7 @@
             </p>
           </div>
           <span>
-            <a href="/blog-details" class="ready-btn">Read more</a>
+            <a href="blogs/blog-details" class="ready-btn">Read more</a>
           </span>
         </div>
       </div>
@@ -63,7 +63,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="single-blog">
           <div class="single-blog-img">
-            <a href="/blog-details">
+            <a href="blogs/blog-details">
               <img src="assets/img/blog/3.jpg" alt="">
             </a>
           </div>
@@ -85,7 +85,7 @@
             </p>
           </div>
           <span>
-            <a href="/blog-details" class="ready-btn">Read more</a>
+            <a href="blogs/blog-details" class="ready-btn">Read more</a>
           </span>
         </div>
       </div>
@@ -93,7 +93,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="single-blog">
           <div class="single-blog-img">
-            <a href="/blog-details">
+            <a href="blogs/blog-details">
               <img src="assets/img/blog/4.jpg" alt="">
             </a>
           </div>
@@ -115,7 +115,7 @@
             </p>
           </div>
           <span>
-            <a href="/blog-details" class="ready-btn">Read more</a>
+            <a href="blogs/blog-details" class="ready-btn">Read more</a>
           </span>
         </div>
       </div>
@@ -123,7 +123,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="single-blog">
           <div class="single-blog-img">
-            <a href="/blog-details">
+            <a href="blogs/blog-details">
               <img src="assets/img/blog/5.jpg" alt="">
             </a>
           </div>
@@ -145,7 +145,7 @@
             </p>
           </div>
           <span>
-            <a href="/blog-details" class="ready-btn">Read more</a>
+            <a href="blogs/blog-details" class="ready-btn">Read more</a>
           </span>
         </div>
       </div>

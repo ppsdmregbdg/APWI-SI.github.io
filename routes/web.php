@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('dashboard.landing-page.landing');
 });
 
-Route::get('/blog', function () {
+Route::get('/blogs', function () {
     return view('dashboard.blog.layouts.master-blog');
 });
 
-Route::get('/blog-details', function () {
+Route::get('/blogs/blog-details', function () {
     return view('dashboard.blog.show-blog');
 });
