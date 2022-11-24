@@ -26,11 +26,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4">
-              @include('dashboard.blog.partials.sidebar')
+              @include('dashboard.article.partials.sidebar')
           </div>
           
-          <!-- Start single blog -->
-          @include('dashboard.blog.data-blog') <!-- << kuduna yield lain ieu teh, lain include? -->
+          <!-- Content -->
+          @include('dashboard.article.data-article') <!-- << kuduna yield lain ieu teh, lain include? -->
+          {{-- @include('dashboard.article.articlecategories') <!-- << kuduna yield lain ieu teh, lain include? --> --}}
           
         </div>
       </div>

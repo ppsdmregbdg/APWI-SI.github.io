@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
+use App\Models\ArticleCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,12 @@ Route::get('/', function () {
     return view('dashboard.landing-page.landing');
 });
 
-Route::get('/blogs', function () {
-    return view('dashboard.blog.layouts.master-blog');
-});
+Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
-Route::get('blogs.blog-details', function () {
-    return view('dashboard.blog.show-blog');
+Route::get('/articlecategories/{article:slug}', function (ArticleCategory $articlecategory){
+    return view('dashboard.article.articlecategories', [
+        'articles' => $articlecategory->articles,
+        'articlecategory' => $articlecategory->name
+    ]);
 });

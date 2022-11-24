@@ -20,7 +20,7 @@
           <div class="recent-single-post">
             <div class="post-img">
               <a href="#">
-                <img src="assets/img/blog/1.jpg" alt="">
+                <img src="/assets/img/blog/1.jpg" alt="">
               </a>
             </div>
             <div class="pst-content">
@@ -32,7 +32,7 @@
           <div class="recent-single-post">
             <div class="post-img">
               <a href="#">
-                <img src="assets/img/blog/2.jpg" alt="">
+                <img src="/assets/img/blog/2.jpg" alt="">
               </a>
             </div>
             <div class="pst-content">
@@ -44,7 +44,7 @@
           <div class="recent-single-post">
             <div class="post-img">
               <a href="#">
-                <img src="assets/img/blog/3.jpg" alt="">
+                <img src="/assets/img/blog/3.jpg" alt="">
               </a>
             </div>
             <div class="pst-content">
@@ -56,7 +56,7 @@
           <div class="recent-single-post">
             <div class="post-img">
               <a href="#">
-                <img src="assets/img/blog/4.jpg" alt="">
+                <img src="/assets/img/blog/4.jpg" alt="">
               </a>
             </div>
             <div class="pst-content">
@@ -96,7 +96,7 @@
         </ul>
       </div>
     </div>
-    <div class="single-blog-page">
+    {{-- <div class="single-blog-page">
       <div class="left-blog">
         <h4>archive</h4>
         <ul>
@@ -150,6 +150,6 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
   <!-- End left sidebar -->
