@@ -22,8 +22,8 @@ Route::get('/', function () {
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
-Route::get('/articlecategories/{article:slug}', function (ArticleCategory $articlecategory){
-    return view('dashboard.article.articlecategories', [
+Route::get('/articlecategories/{articlecategory:slug}', function (ArticleCategory $articlecategory){
+    return view('dashboard.article.articlecategory', [
         'articles' => $articlecategory->articles,
         'articlecategory' => $articlecategory->name
     ]);

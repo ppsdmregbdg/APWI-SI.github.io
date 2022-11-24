@@ -2,7 +2,7 @@
 
 <div class="col-md-8 col-sm-8 col-xs-12">
     <div class="row">
-      @foreach ($articles as $article)
+      {{-- @foreach ($articles as $article)
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="single-blog">
             <div class="single-blog-img">
@@ -36,7 +36,7 @@
             </span>
           </div>
         </div>
-      @endforeach
+      @endforeach --}}
       <!-- End single blog -->
       <div class="blog-pagination">
         <ul class="pagination">

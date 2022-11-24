@@ -6,7 +6,6 @@ use App\Models\ArticleCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-
 class Article extends Model
 {
     use HasFactory;
