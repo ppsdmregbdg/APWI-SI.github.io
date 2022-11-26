@@ -6,13 +6,14 @@ use App\Models\Article;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ArticleCategory extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function articles(){
+    public function articles()
+    {
         return $this->hasMany(Article::class);
     }
 }

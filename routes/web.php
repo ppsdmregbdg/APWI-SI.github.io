@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
-use App\Models\ArticleCategory;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +21,4 @@ Route::get('/', function () {
 
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
-
-Route::get('/articlecategories/{articlecategory:slug}', function (ArticleCategory $articlecategory){
-    return view('dashboard.article.articlecategory', [
-        'articles' => $articlecategory->articles,
-        'articlecategory' => $articlecategory->name
-    ]);
-});
+Route::get('/categories/{category:slug}', [ArticleController::class, 'showCategories']);
