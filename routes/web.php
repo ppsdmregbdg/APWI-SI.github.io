@@ -21,4 +21,4 @@ Route::get('/', function () {
 
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
-Route::get('/categories/{category:slug}', [ArticleController::class, 'showCategories']);
+Route::get('/articlecategories/{articlecategory:slug}', [ArticleController::class, 'showCategories']);

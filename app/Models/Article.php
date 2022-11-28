@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Category;
+use App\Models\Articlecategory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,9 +12,29 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['articlecategory', 'user'];
 
-    public function category()
+    public function scopeFilter($query, array $filters){
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query->where(function($query) use ($search) {
+                 $query->where('title', 'like', '%' . $search . '%')
+                             ->orWhere('body', 'like', '%' . $search . '%');
+             });
+         });
+
+        $query->when($filters['articlecategory'] ??  false, function($query, $articlecategory){
+            return $query->whereHas('articlecategory', function($query) use ($articlecategory){
+                $query->where('slug', $articlecategory);
+            });
+        });
+    }
+    public function articlecategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Articlecategory::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -45,19 +45,19 @@
                       <span><i class="bi bi-clock"></i> march 28, 2016</span>
                       <span class="tag-meta">
                         <i class="bi bi-folder"></i>
-                        <a href="#">painting</a>,
-                        <a href="#">work</a>
+                        in 
+                        <a  class="text-danger" href="/articles?articlecategory={{ $article->articlecategory->slug }}">{{ $article->articlecategory->name }}</a>,
                       </span>
-                      <span>
+                      {{-- <span>
                         <i class="bi bi-tags"></i>
                         <a href="#">tools</a>,
                         <a href="#"> Humer</a>,
                         <a href="#">House</a>
-                      </span>
+                      </span> --}}
                       <span><i class="bi bi-chat"></i> <a href="#">6 comments</a></span>
                     </div>
                     <div class="entry-content">
-                      {{ $article->body }}
+                      {!! $article->body !!}
                       {{-- <blockquote>
                         <p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur. In venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed, cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin dictum
                           tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque scelerisque.</p>

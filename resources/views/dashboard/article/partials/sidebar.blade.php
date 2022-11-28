@@ -1,9 +1,13 @@
 <div class="page-head-blog">
     <div class="single-blog-page">
       <!-- search option start -->
-      <form action="#">
+      <form action="/articles">
+        @if(request('articlecategory'))
+          <input type="hidden" name="articlecategory" value="{{ request('articlecategory') }}">
+        @endif
+        
         <div class="search-option">
-          <input type="text" placeholder="Search...">
+          <input type="text" placeholder="Search..." name="search" value="{{ request('search') }}">
           <button class="button" type="submit">
             <i class="bi bi-search"></i>
           </button>
