@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Article;
 use App\Models\Articlecategory;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -41,7 +43,27 @@ class DashboardArticleController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:articles',
+            'articlecategory_id' => 'required',
+            // 'image' => 'image|file|max:1024|dimensions:min_width=1200,min_height=400',
+            'excerpt' => '',
+            'body' => 'required|min:100'
+        ]);
+
+        // if ($request->file('image')) {
+        //     $validateData['image'] = $request->file('image')->store('article-images');
+        // }
+
+        $validateData['user_id'] = auth()->user()->id;
+        $validateData['excerpt'] = Str::limit(strip_tags($request->body), 100, '..');
+
+        Article::create($validateData);
+
+        Alert::success('Congrats', 'New Article has been added!');
+        
+        return redirect('/dashboard/articles');
     }
 
     /**
@@ -65,7 +87,10 @@ class DashboardArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('dashboardAdmin.articles.edit', [
+            'article' => $article,
+            'articlecategories' => Articlecategory::all()
+        ]);
     }
 
     /**
@@ -77,7 +102,36 @@ class DashboardArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'articlecategory_id' => 'required',
+            // 'image' => 'image|file|max:1024|dimensions:min_width=1200,min_height=400',
+            'excerpt' => '',
+            'body' => 'required|min:100'
+        ];
+
+        if ($request->slug != $article->slug) {
+            $rules['slug'] = 'required|unique:articles';
+        }
+
+        $validateData = $request->validate($rules);
+
+        // if ($request->file('image')) {
+        //     if ($article->image) {
+        //         Storage::delete($article->image);
+        //     }
+
+        //     $validateData['image'] = $request->file('image')->store('article-images');
+        // }
+
+        $validateData['user_id'] = auth()->user()->id;
+        $validateData['excerpt'] = Str::limit(strip_tags($request->body), 100, '..');
+
+        Article::where('id', $article->id)->update($validateData);
+
+        Alert::success('Congrats', 'Article has been uptaded!');
+
+        return redirect('/dashboard/articles');
     }
 
     /**
@@ -88,7 +142,11 @@ class DashboardArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        Article::destroy($article->id);
+
+        Alert::success('Congrats', 'Articles Deleted!');
+
+        return redirect('/dashboard/articles');
     }
 
     public function checkSlug(Request $request){

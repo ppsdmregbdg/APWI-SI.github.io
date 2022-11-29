@@ -17,7 +17,7 @@
     </style>
   </head>
   <body>
-
+    @include('sweetalert::alert')
     @include('dashboardAdmin.layouts.header')
 <div class="container-fluid">
   <div class="row">

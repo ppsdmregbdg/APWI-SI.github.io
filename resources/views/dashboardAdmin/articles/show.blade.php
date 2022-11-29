@@ -3,8 +3,12 @@
     <div class="">
         <div class="container col-xxl-8 py-4">
             <a href="/dashboard/articles" class="btn btn-success mb-3"><span data-feather="arrow-left"></span> Back to Article</a>
-            <a href="/dashboard/articles" class="btn btn-warning mb-3"><span data-feather="edit"></span> Edit</a>
-            <a href="/dashboard/articles" class="btn btn-danger mb-3"><span data-feather="x-circle"></span> Delete</a>
+            <a href="/dashboard/articles/{{ $article->slug }}/edit" class="btn btn-warning mb-3"><span data-feather="edit"></span> Edit</a>
+            <form action="/dashboard/articles/{{ $article->slug }}" method="POST" class="d-inline">
+                @method('delete')
+                @csrf
+                <button class="btn btn-danger mb-3" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><span data-feather="x-circle"></span> Delete</button>
+            </form>  
             <div class="d-flex justify-content-between">
                 <p>Penulis : {{ $article->user->name }}</p>
                 <p>{{ substr($article->created_at,0,10) }}</p>
