@@ -37,6 +37,7 @@
 
 <body>
 
+  @include('sweetalert::alert')
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex justify-content-between">
@@ -56,6 +57,35 @@
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="{{ Request::is('articles*') ? 'active' : '' }}" href="/articles">Article</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          @auth
+            <li class="dropdown"><a href="#"><span>Welcome, {{ auth()->user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="/dashboard">
+                  <button style="
+                  background-color: transparent;
+                  background-repeat: no-repeat;
+                  border: none;
+                  "
+                  >Dashboard</button>
+                </a></li>
+                <li>
+                  <a>
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" style="
+                    background-color: transparent;
+                    background-repeat: no-repeat;
+                    border: none;
+                    "
+                    >Logout</button>
+                  </form>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          @else
+            <li><a class="nav-link" href="/login">Login</a></li>
+          @endauth
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

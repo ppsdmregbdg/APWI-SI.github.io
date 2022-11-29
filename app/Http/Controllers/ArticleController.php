@@ -16,7 +16,7 @@ class ArticleController extends Controller
         }
         return view('dashboard.article.data-article', [
             'title' => "All Article $title",
-            'articles' => Article::latest()->filter(request(['search', 'articlecategory']))->paginate(5)
+            'articles' => Article::latest()->filter(request(['search', 'articlecategory']))->paginate(5)->withQueryString()
         ]);
     }
 
