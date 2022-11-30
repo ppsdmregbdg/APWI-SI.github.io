@@ -15,7 +15,7 @@
             </div>
             <div class="row justify-content-center g-5">
                 <div class="col-lg-12">
-                    <h1 class="display-5 fw-bold lh-1">{{$article->title}}</h1>
+                    <h1 class="display-5 fw-bold lh-1" style="word-wrap: break-word">{{$article->title}}</h1>
                     <div class="img-fluid my-5" style="">
                         @if($article->image)
                             <div style="max-height: 500px; overflow:hidden;">
@@ -27,7 +27,7 @@
                         
                     </div>
                     
-                    <div class="body-word mb-3 px-3">
+                    <div class="body-word mb-3 px-3" style="word-wrap: break-word">
                         {!! $article->body !!}
                     </div>
 

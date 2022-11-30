@@ -15,6 +15,7 @@ class Article extends Model
     protected $guarded = ['id'];
     protected $with = ['articlecategory', 'user'];
 
+    //untuk search
     public function scopeFilter($query, array $filters){
         $query->when($filters['search'] ?? false, function($query, $search) {
             return $query->where(function($query) use ($search) {
@@ -29,6 +30,7 @@ class Article extends Model
             });
         });
     }
+    
     public function articlecategory()
     {
         return $this->belongsTo(Articlecategory::class);

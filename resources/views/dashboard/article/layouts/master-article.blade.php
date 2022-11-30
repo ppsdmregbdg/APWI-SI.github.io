@@ -30,8 +30,7 @@
           </div>
           
           <!-- Content -->
-          @include('dashboard.article.data-article') <!-- << kuduna yield lain ieu teh, lain include? -->
-          {{-- @include('dashboard.article.articlecategories') <!-- << kuduna yield lain ieu teh, lain include? --> --}}
+          @include('dashboard.article.data-article')
           
         </div>
       </div>

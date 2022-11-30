@@ -16,13 +16,19 @@ class ArticleController extends Controller
         }
         return view('dashboard.article.data-article', [
             'title' => "All Article $title",
-            'articles' => Article::latest()->filter(request(['search', 'articlecategory']))->paginate(5)->withQueryString()
+            'articles' => Article::latest()->filter(request(['search', 'articlecategory']))->paginate(5)->withQueryString(),
+
+            'recentarticles' => Article::latest()->paginate(3),
+            'recentarticlecategories' => Articlecategory::orderBy('name', 'asc')->get()
         ]);
     }
 
     public function show(Article $article){
         return view('dashboard.article.show-article', [
-            'article' => $article
+            'article' => $article,
+
+            'recentarticles' => Article::latest()->paginate(3),
+            'recentarticlecategories' => Articlecategory::orderBy('name', 'asc')->get()
         ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Articlecategory;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardArticleController extends Controller
@@ -19,7 +20,7 @@ class DashboardArticleController extends Controller
     public function index()
     {
         return view('dashboardAdmin.articles.index', [
-            'articles' => Article::all()
+            'articles' => Article::latest()->paginate(10)
         ]);
     }
 
@@ -47,14 +48,13 @@ class DashboardArticleController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:articles',
             'articlecategory_id' => 'required',
-            // 'image' => 'image|file|max:1024|dimensions:min_width=1200,min_height=400',
-            'excerpt' => '',
+            'image' => 'image|file|max:1024',
             'body' => 'required|min:100'
         ]);
 
-        // if ($request->file('image')) {
-        //     $validateData['image'] = $request->file('image')->store('article-images');
-        // }
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('article-images');
+        }
 
         $validateData['user_id'] = auth()->user()->id;
         $validateData['excerpt'] = Str::limit(strip_tags($request->body), 100, '..');
@@ -105,8 +105,7 @@ class DashboardArticleController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'articlecategory_id' => 'required',
-            // 'image' => 'image|file|max:1024|dimensions:min_width=1200,min_height=400',
-            'excerpt' => '',
+            'image' => 'image|file|max:1024',
             'body' => 'required|min:100'
         ];
 
@@ -116,13 +115,13 @@ class DashboardArticleController extends Controller
 
         $validateData = $request->validate($rules);
 
-        // if ($request->file('image')) {
-        //     if ($article->image) {
-        //         Storage::delete($article->image);
-        //     }
+        if ($request->file('image')) {
+            if ($article->image) {
+                Storage::delete($article->image);
+            }
 
-        //     $validateData['image'] = $request->file('image')->store('article-images');
-        // }
+            $validateData['image'] = $request->file('image')->store('article-images');
+        }
 
         $validateData['user_id'] = auth()->user()->id;
         $validateData['excerpt'] = Str::limit(strip_tags($request->body), 100, '..');
@@ -142,6 +141,10 @@ class DashboardArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        if ( $article->image ) {
+            Storage::delete($article->image);
+        }
+
         Article::destroy($article->id);
 
         Alert::success('Congrats', 'Articles Deleted!');

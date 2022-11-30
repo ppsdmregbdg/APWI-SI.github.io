@@ -18,55 +18,24 @@
     <div class="single-blog-page">
       <!-- recent start -->
       <div class="left-blog">
-        <h4>recent post</h4>
+        <h4>recent article</h4>
         <div class="recent-post">
           <!-- start single post -->
-          <div class="recent-single-post">
-            <div class="post-img">
-              <a href="#">
-                <img src="/assets/img/blog/1.jpg" alt="">
-              </a>
+          @foreach($recentarticles as $recent)
+            <div class="recent-single-post">
+              <div class="post-img">
+                @if($recent->image)
+                  <img src="{{ asset('storage/' . $recent->image) }}" alt="Photo Of {{ $recent->title }}" class="img-fluid" style="max-height: 250px;">
+                @else
+                  <img src="https://picsum.photos/500/500" alt="Random Picsum Images">
+                @endif
+              </div>
+              <div class="pst-content" style="word-wrap: break-word">
+                <p><a href="/articles/{{ $recent->slug }}" style="word-wrap: break-word">{{ $recent->title }}</a></p>
+                <p class="text-muted" style="font-size: 11px">{{ $recent->excerpt }}</p>
+              </div>
             </div>
-            <div class="pst-content">
-              <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-            </div>
-          </div>
-          <!-- End single post -->
-          <!-- start single post -->
-          <div class="recent-single-post">
-            <div class="post-img">
-              <a href="#">
-                <img src="/assets/img/blog/2.jpg" alt="">
-              </a>
-            </div>
-            <div class="pst-content">
-              <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-            </div>
-          </div>
-          <!-- End single post -->
-          <!-- start single post -->
-          <div class="recent-single-post">
-            <div class="post-img">
-              <a href="#">
-                <img src="/assets/img/blog/3.jpg" alt="">
-              </a>
-            </div>
-            <div class="pst-content">
-              <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-            </div>
-          </div>
-          <!-- End single post -->
-          <!-- start single post -->
-          <div class="recent-single-post">
-            <div class="post-img">
-              <a href="#">
-                <img src="/assets/img/blog/4.jpg" alt="">
-              </a>
-            </div>
-            <div class="pst-content">
-              <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-            </div>
-          </div>
+          @endforeach
           <!-- End single post -->
         </div>
       </div>
@@ -74,86 +43,15 @@
     </div>
     <div class="single-blog-page">
       <div class="left-blog">
-        <h4>categories</h4>
+        <h4>Article Categories</h4>
         <ul>
-          <li>
-            <a href="#">Portfolio</a>
-          </li>
-          <li>
-            <a href="#">Project</a>
-          </li>
-          <li>
-            <a href="#">Design</a>
-          </li>
-          <li>
-            <a href="#">wordpress</a>
-          </li>
-          <li>
-            <a href="#">Joomla</a>
-          </li>
-          <li>
-            <a href="#">Html</a>
-          </li>
-          <li>
-            <a href="#">Website</a>
-          </li>
+          @foreach($recentarticlecategories as $recentcategories)
+            <li>
+              <a href="/articles?articlecategory={{ $recentcategories->slug }}" style="word-wrap: break-word">{{ $recentcategories->name }}</a>
+            </li>
+          @endforeach
         </ul>
       </div>
     </div>
-    {{-- <div class="single-blog-page">
-      <div class="left-blog">
-        <h4>archive</h4>
-        <ul>
-          <li>
-            <a href="#">07 July 2016</a>
-          </li>
-          <li>
-            <a href="#">29 June 2016</a>
-          </li>
-          <li>
-            <a href="#">13 May 2016</a>
-          </li>
-          <li>
-            <a href="#">20 March 2016</a>
-          </li>
-          <li>
-            <a href="#">09 Fabruary 2016</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="single-blog-page">
-      <div class="left-tags blog-tags">
-        <div class="popular-tag left-side-tags left-blog">
-          <h4>popular tags</h4>
-          <ul>
-            <li>
-              <a href="#">Portfolio</a>
-            </li>
-            <li>
-              <a href="#">Project</a>
-            </li>
-            <li>
-              <a href="#">Design</a>
-            </li>
-            <li>
-              <a href="#">Website</a>
-            </li>
-            <li>
-              <a href="#">Joomla</a>
-            </li>
-            <li>
-              <a href="#">Html</a>
-            </li>
-            <li>
-              <a href="#">wordpress</a>
-            </li>
-            <li>
-              <a href="#">Masonry</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> --}}
   </div>
   <!-- End left sidebar -->

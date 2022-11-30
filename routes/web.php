@@ -2,10 +2,11 @@
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DashboardArticlecategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,9 @@ Route::get('/dashboard', function(){
     return view('dashboardAdmin.index');
 })->middleware('auth');
 
+//Check-slug
 Route::get('/dashboard/articles/checkSlug', [DashboardArticleController::class, 'checkSlug']);
+Route::get('/dashboard/articlecategories/checkSlug', [DashboardArticlecategoryController::class, 'checkSlug']);
+
 Route::resource('/dashboard/articles', DashboardArticleController::class)->middleware('auth');
+Route::resource('/dashboard/articlecategories', DashboardArticlecategoryController::class)->middleware('auth')->except('show');
