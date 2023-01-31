@@ -4,9 +4,12 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\DashboardArticlecategoryController;
+use App\Http\Controllers\DashboardModulController;
+use App\Http\Controllers\DashboardVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +26,12 @@ Route::get('/', function () {
     return view('dashboard.landing-page.landing');
 });
 
+// artikel
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
+
+// elearning
+Route::get('/elearnings', [ElearningController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -43,3 +50,5 @@ Route::get('/dashboard/articlecategories/checkSlug', [DashboardArticlecategoryCo
 
 Route::resource('/dashboard/articles', DashboardArticleController::class)->middleware('auth');
 Route::resource('/dashboard/articlecategories', DashboardArticlecategoryController::class)->middleware('auth')->except('show');
+Route::resource('/dashboard/moduls', DashboardModulController::class)->middleware('auth')->except('show');
+Route::resource('/dashboard/videos', DashboardVideoController::class)->middleware('auth');

@@ -25,6 +25,21 @@
             Article Categories
           </a>
         </li>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted">
+            <span>E-LEARNING</span>  
+          </h6> 
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/moduls*') ? 'active' : '' }}" href="/dashboard/moduls">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Moduls
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/videos*') ? 'active' : '' }}" href="/dashboard/videos">
+            <span data-feather="grid" class="align-text-bottom"></span>
+            Videos
+          </a>
+        </li>
       </ul>
 
     </div>

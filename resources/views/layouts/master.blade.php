@@ -55,8 +55,9 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="{{ Request::is('articles*') ? 'active' : '' }}" href="/articles">Article</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="{{ Request::is('articles*') ? 'active' : '' }}" href="/articles">E-Publikasi</a></li> 
+          <li><a class="{{ Request::is('learnings*') ? 'active' : '' }}" href="/elearnings">E-Learning</a></li> 
           @auth
             <li class="dropdown"><a href="#"><span>Welcome, {{ auth()->user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
