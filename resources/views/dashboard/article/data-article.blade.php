@@ -12,7 +12,7 @@
                   <h1 class="title2">E - Publikasi</h1>
                 </div>
                 <div class="layer3">
-                  <h2 class="title3">Surat Kabar - PPSDM Regional Bandung</h2>
+                  <h2 class="title3">E-Newspaper - PPSDM Regional Bandung</h2>
                 </div>
               </div>
             </div>

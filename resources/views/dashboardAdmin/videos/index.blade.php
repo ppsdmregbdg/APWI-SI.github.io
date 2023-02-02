@@ -21,9 +21,7 @@
                     <td>{{ $loop->iteration }}.</td>
                     <td>{{ $video->title }}</td>
                     <td>{{ $video->articlecategory->name }}</td>
-                    <td>
-                    <iframe width="560" height="315" src="{{ e($embedCode) }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+                    <td>{{ $video->link }}</td>
                     <td>   
                         <a href="/dashboard/videos/{{ $video->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
                         <form action="/dashboard/videos/{{ $video->slug }}" method="POST" class="d-inline">

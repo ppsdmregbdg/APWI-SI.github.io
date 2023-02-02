@@ -17,23 +17,10 @@ class DashboardVideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Video $video = null)
+    public function index()
     {
-        $record = Video::find($video);
-        if ($record) {
-            $url = $record->link;
-
-            preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches);
-            $videoId = $matches[1];
-
-            $embedCode = '<iframe src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        } else {
-            $embedCode = "The video you're looking for does not exist";
-        }
-
         return view('dashboardAdmin.videos.index', [
-            'videos' => Video::orderBy('title', 'asc')->paginate(10),
-            'embedCode' => $embedCode
+            'videos' => Video::orderBy('title', 'asc')->paginate(10)
         ]);
         
     }

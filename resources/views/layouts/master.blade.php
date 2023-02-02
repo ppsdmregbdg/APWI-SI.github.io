@@ -56,8 +56,21 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="{{ Request::is('articles*') ? 'active' : '' }}" href="/articles">E-Publikasi</a></li> 
-          <li><a class="{{ Request::is('learnings*') ? 'active' : '' }}" href="/elearnings">E-Learning</a></li> 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">E-Publikasi <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Jurnal</a></li>
+                <li><a href="#">Buku</a></li>
+                <li><a href="/articles">E-Newspaper</a></li>
+              </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">E-Learning <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/elearnings">Modul</a></li>
+                <li><a href="/videos">Video</a></li>
+              </ul>
+          </li>
           @auth
             <li class="dropdown"><a href="#"><span>Welcome, {{ auth()->user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>

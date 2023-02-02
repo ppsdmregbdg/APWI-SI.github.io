@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Elearning;
+use App\Models\Modul;
+use App\Models\Video;
 use App\Models\Articlecategory;
 
 class ElearningController extends Controller
@@ -15,11 +16,32 @@ class ElearningController extends Controller
      */
     public function index()
     {
-        return view('dashboard.elearning.data-article', [
-            // 'title' => "All Article $title",
-            'articles' => Article::latest()->filter(request(['search', 'articlecategory']))->paginate(5)->withQueryString(),
+        $title = '';
+        if(request('articlecategory')){
+            $articlecategory = Articlecategory::firstWhere('slug', request('articlecategory'));
+            $title = ' in ' . $articlecategory->name;
+        }
+        return view('dashboard.elearning.data-elearning', [
+            'title' => "E-Learning - Modul $title",
+            'moduls' => Modul::latest()->filter(request(['search', 'articlecategory']))->paginate(5)->withQueryString(),
 
-            'recentarticles' => Article::latest()->paginate(3),
+            'recentmoduls' => Modul::latest()->paginate(3),
+            'recentarticlecategories' => Articlecategory::orderBy('name', 'asc')->get()
+        ]);
+    }
+
+    public function indexVideo()
+    {
+        $title = '';
+        if(request('articlecategory')){
+            $articlecategory = Articlecategory::firstWhere('slug', request('articlecategory'));
+            $title = ' in ' . $articlecategory->name;
+        }
+        return view('dashboard.elearning-video.data-elearning', [
+            'title' => "E-Learning - Video $title",
+            'videos' => Video::latest()->filter(request(['search', 'articlecategory']))->paginate(5)->withQueryString(),
+
+            'recentvideos' => Video::latest()->paginate(3),
             'recentarticlecategories' => Articlecategory::orderBy('name', 'asc')->get()
         ]);
     }

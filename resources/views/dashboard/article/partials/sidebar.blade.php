@@ -53,18 +53,5 @@
         </ul>
       </div>
     </div>
-    <div class="single-blog-page">
-      <div class="left-blog">
-        <h4>Ilmiah</h4>
-        <ul>
-          <li>
-            <a href="" style="word-wrap: break-word">Jurnal</a>
-          </li>
-          <li>
-            <a href="" style="word-wrap: break-word">Buku</a>
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
   <!-- End left sidebar -->

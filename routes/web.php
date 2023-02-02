@@ -32,6 +32,7 @@ Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
 // elearning
 Route::get('/elearnings', [ElearningController::class, 'index']);
+Route::get('/videos', [ElearningController::class, 'indexVideo']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

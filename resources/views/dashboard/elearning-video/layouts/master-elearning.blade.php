@@ -12,7 +12,7 @@
                   <h1 class="title2">E - Learning</h1>
                 </div>
                 <div class="layer3">
-                  <h2 class="title3">Kumpulan Modul dan Video</h2>
+                  <h2 class="title3">Kumpulan Video</h2>
                 </div>
               </div>
             </div>
@@ -26,11 +26,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4">
-              @include('dashboard.elearning.partials.sidebar')
+              @include('dashboard.elearning-video.partials.sidebar')
           </div>
           
           <!-- Content -->
-          @include('dashboard.elearning.data-elearning')
+          @include('dashboard.elearning-video.data-elearning')
           
         </div>
       </div>
