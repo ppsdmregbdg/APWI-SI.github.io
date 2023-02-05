@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticleController;
@@ -23,7 +24,10 @@ use App\Http\Controllers\DashboardVideoController;
 */
 
 Route::get('/', function () {
-    return view('dashboard.landing-page.landing');
+    return view('dashboard.landing-page.landing', [
+        'recentarticles' => Article::latest()->paginate(3)
+    ]);
+
 });
 
 // artikel

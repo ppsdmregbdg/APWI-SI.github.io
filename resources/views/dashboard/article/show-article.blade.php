@@ -9,10 +9,10 @@
             <div class="slider-content text-center">
               <div class="header-bottom">
                 <div class="layer2">
-                  <h1 class="title2">Blog Details </h1>
+                  <h1 class="title2">Newspaper Details </h1>
                 </div>
                 <div class="layer3">
-                  <h2 class="title3">profesional Blog Page</h2>
+                  <h2 class="title3">{{ $article->title }}</h2>
                 </div>
               </div>
             </div>
@@ -43,20 +43,12 @@
                   <div class="post-information">
                     <h2>{{ $article->title }}</h2>
                     <div class="entry-meta">
-                      <span class="author-meta"><i class="bi bi-person"></i> <a href="#">admin</a></span>
-                      <span><i class="bi bi-clock"></i> march 28, 2016</span>
+                      <span><i class="bi bi-clock"></i>{{ $article->created_at->format('d-m-Y') }}</span>
                       <span class="tag-meta">
                         <i class="bi bi-folder"></i>
                         in 
-                        <a  class="text-danger" href="/articles?articlecategory={{ $article->articlecategory->slug }}" style="word-wrap: break-word">{{ $article->articlecategory->name }}</a>,
+                        <a  class="text-danger" href="/articles?articlecategory={{ $article->articlecategory->slug }}" style="word-wrap: break-word">{{ $article->articlecategory->name }}</a>
                       </span>
-                      {{-- <span>
-                        <i class="bi bi-tags"></i>
-                        <a href="#">tools</a>,
-                        <a href="#"> Humer</a>,
-                        <a href="#">House</a>
-                      </span> --}}
-                      <span><i class="bi bi-chat"></i> <a href="#">6 comments</a></span>
                     </div>
                     <div class="entry-content" style="word-wrap: break-word">
                       {!! $article->body !!}               

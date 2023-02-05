@@ -56,7 +56,7 @@
               @endforeach
             </div>
             @else
-              <p>elearnings Not Found</p>
+              <p>Video Not Found</p>
             @endif
             {{ $videos->appends($_GET)->links() }}
           </div>

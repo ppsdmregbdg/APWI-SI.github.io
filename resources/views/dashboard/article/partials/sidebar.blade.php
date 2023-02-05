@@ -31,7 +31,7 @@
                 @endif
               </div>
               <div class="pst-content" style="word-wrap: break-word">
-                <p><a href="/articles/{{ $recent->slug }}" style="word-wrap: break-word">{{ $recent->title }}</a></p>
+                <p><a href="/articles/{{ $recent->slug }}" style="word-wrap: break-word">{{ Str::limit($recent->title, 50) }}</a></p>
                 <p class="text-muted" style="font-size: 11px">{{ $recent->excerpt }}</p>
               </div>
             </div>

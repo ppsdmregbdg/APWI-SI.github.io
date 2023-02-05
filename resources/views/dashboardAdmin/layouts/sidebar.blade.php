@@ -31,7 +31,7 @@
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/moduls*') ? 'active' : '' }}" href="/dashboard/moduls">
             <span data-feather="file-text" class="align-text-bottom"></span>
-            Moduls
+            Modules
           </a>
         </li>
         <li class="nav-item">

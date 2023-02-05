@@ -12,7 +12,7 @@
                   <h1 class="title2">E - Publikasi</h1>
                 </div>
                 <div class="layer3">
-                  <h2 class="title3">E-Newspaper - PPSDM Regional Bandung</h2>
+                  <h2 class="title3">Newspaper - PPSDM Regional Bandung</h2>
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@
             @if($articles->count())
               <div class="card mb-3">
                 @if($articles[0]->image)
-                  <div style="max-height: 500px; overflow:hidden;">
+                  <div style="max-height: 300px; overflow:hidden;">
                       <img src="{{ asset('storage/' . $articles[0]->image) }}" class="card-img-top" alt="Photo of {{ $articles[0]->title }}">
                   </div>
                 @else
@@ -64,9 +64,9 @@
                     <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)">
                       <span class="text-white">in </span> <a class="text-warning" href="/articles?articlecategory={{ $article->articlecategory->slug }}">{{ $article->articlecategory->name }}</a>
                     </div>
-                    <div style="max-height: 300px; overflow:hidden;">
+                    <div style="max-height: 200px; overflow:hidden;">
                       @if($article->image)
-                        <img src="{{ asset('storage/' . $article->image) }}" class="card-img-top" alt="Photo Of {{ $article->title }}">
+                        <img src="{{ asset('storage/' . $article->image) }}" class="object-fit: cover;" alt="Photo Of {{ $article->title }}">
                       @else
                         <img class="card-img-top" src="https://picsum.photos/300/300" alt="Random Picsum Images">
                       @endif
@@ -75,10 +75,10 @@
                       <div class="col-md-12">
                         <span class="text-muted">
                           <i class="bi bi-calendar"></i>
-                          {{ $article->articlecategory->created_at->diffForHumans() }}
+                          {{ $article->created_at->diffForHumans() }}
                         </span>
                       </div>
-                      <h5 class="card-title mt-3"><a href="/articles/{{ $article->slug }}" class="text-black">{{ $article->title }}</a></h5>
+                      <h5 class="card-title mt-3"><a href="/articles/{{ $article->slug }}" class="text-black">{{ Str::limit($article->title, 50) }}</a></h5>
                       <p class="card-text">{{ $article->excerpt }}</p>
                       <a href="/articles/{{ $article->slug }}" class="btn btn-primary">Readmore</a>
                     </div>

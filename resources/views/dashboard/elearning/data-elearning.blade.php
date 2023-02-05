@@ -55,7 +55,7 @@
                 @endforeach
               </div>
             @else
-              <p>elearnings Not Found</p>
+              <p>Modul Not Found</p>
             @endif
             {{ $moduls->appends($_GET)->links() }}
           </div>
