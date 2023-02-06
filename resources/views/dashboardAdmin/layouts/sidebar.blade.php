@@ -12,17 +12,11 @@
         </li>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted">
             <span>ARTICLE</span>  
-          </h6> 
+        </h6> 
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/articles*') ? 'active' : '' }}" href="/dashboard/articles">
             <span data-feather="file-text" class="align-text-bottom"></span>
             Article Post
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/articlecategories*') ? 'active' : '' }}" href="/dashboard/articlecategories">
-            <span data-feather="grid" class="align-text-bottom"></span>
-            Article Categories
           </a>
         </li>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted">
@@ -38,6 +32,15 @@
           <a class="nav-link {{ Request::is('dashboard/videos*') ? 'active' : '' }}" href="/dashboard/videos">
             <span data-feather="grid" class="align-text-bottom"></span>
             Videos
+          </a>
+        </li>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted">
+          <span>CATEGORIES</span>  
+        </h6>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/articlecategories*') ? 'active' : '' }}" href="/dashboard/articlecategories">
+            <span data-feather="grid" class="align-text-bottom"></span>
+             Category
           </a>
         </li>
       </ul>

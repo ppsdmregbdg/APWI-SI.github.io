@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Modul;
+use App\Models\Video;
 use App\Models\Articlecategory;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -112,9 +114,14 @@ class DashboardArticlecategoryController extends Controller
     public function destroy(Articlecategory $articlecategory)
     {
         $articlecategoryId = $articlecategory->id;
+
         $articles = Article::where('articlecategory_id', '=', $articlecategoryId);
-        
+        $modul = Modul::where('articlecategory_id', '=', $articlecategoryId);
+        $video = Video::where('articlecategory_id', '=', $articlecategoryId);
+
         $articles->delete();
+        $modul->delete();
+        $video->delete();
 
         Articlecategory::destroy($articlecategory->id);
         
