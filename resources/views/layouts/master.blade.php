@@ -55,7 +55,7 @@
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Jurnal</a></li>
                 <li><a href="#">Buku</a></li>
-                <li><a href="/articles">Newspaper</a></li>
+                <li><a href="/articles">Artikel</a></li>
               </ul>
           </li>
           <li class="dropdown">
