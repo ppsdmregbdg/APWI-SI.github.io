@@ -48,8 +48,20 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li>
+            @if(Request::is('articles') || Request::is('elearnings') || Request::is('videos'))
+              <a class="nav-link scrollto" href="/#hero">Home</a>
+            @else
+              <a class="nav-link scrollto" href="#hero">Home</a>
+            @endif
+          </li>
+          <li>
+            @if(Request::is('articles') || Request::is('elearnings') || Request::is('videos'))
+              <a class="nav-link scrollto" href="/#about">About</a>
+            @else
+              <a class="nav-link scrollto" href="#about">About</a>
+            @endif
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">E-Publikasi <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
