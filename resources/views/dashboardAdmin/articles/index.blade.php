@@ -8,18 +8,20 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Title</th>
-              <th scope="col">Category</th>
-              <th scope="col">Action</th>
+              <th scope="col" class="text-center">#</th>
+              <th scope="col" class="text-center">Title</th>
+              <th scope="col" class="text-center">By</th>
+              <th scope="col" class="text-center">Category</th>
+              <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach($articles as $article)
                 <tr>
-                    <td>{{ $loop->iteration }}.</td>
-                    <td>{{ $article->title }}</td>
-                    <td>{{ $article->articlecategory->name }}</td>
+                    <td class="px-2">{{ $loop->iteration }}.</td>
+                    <td class="px-2">{{ $article->title }}</td>
+                    <td class="px-2">{{ $article->user->name }}</td>
+                    <td class="px-2">{{ $article->articlecategory->name }}</td>
                     <td>
                         <a href="/dashboard/articles/{{ $article->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>    
                         <a href="/dashboard/articles/{{ $article->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>

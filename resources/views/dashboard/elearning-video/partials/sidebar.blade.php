@@ -1,7 +1,7 @@
 <div class="page-head-blog">
     <div class="single-blog-page">
       <!-- search option start -->
-      <form action="/elearnings">
+      <form action="/videos">
         @if(request('articlecategory'))
           <input type="hidden" name="articlecategory" value="{{ request('articlecategory') }}">
         @endif

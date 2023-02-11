@@ -49,14 +49,14 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li>
-            @if(Request::is('articles') || Request::is('elearnings') || Request::is('videos'))
-              <a class="nav-link scrollto" href="/#hero">Home</a>
+            @if(Request::is('articles*') || Request::is('elearnings*') || Request::is('videos*') || Request::is('login*'))
+              <a class="nav-link scrollto" href="/">Home</a>
             @else
-              <a class="nav-link scrollto" href="#hero">Home</a>
+              <a class="nav-link scrollto" href="/">Home</a>
             @endif
           </li>
           <li>
-            @if(Request::is('articles') || Request::is('elearnings') || Request::is('videos'))
+            @if(Request::is('articles*') || Request::is('elearnings*') || Request::is('videos*') || Request::is('login*') )
               <a class="nav-link scrollto" href="/#about">About</a>
             @else
               <a class="nav-link scrollto" href="#about">About</a>

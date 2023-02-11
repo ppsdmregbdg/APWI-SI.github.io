@@ -72,7 +72,7 @@
                   <h4 class="sec-head">Visi & Misi</h4>
                 </a>
                 <p>
-                  Visi dari PPSDM Regional Bandung adalah terdepan dalam peningkatan kompetensi dan profesionalitas aparatur kementerian dalam negeri dan pemerintah daerah. Sementara misi dari PPSDM Regional Bandung adalah sebagai berikut:
+                  Visi Widya Iswara PPSDM Regional Bandung adalah terdepan dalam peningkatan kompetensi dan profesionalitas aparatur kementerian dalam negeri dan pemerintah daerah. Sementara misi dari Widya Iswara adalah sebagai berikut:
                 </p>
                 <ul>
                   <li>

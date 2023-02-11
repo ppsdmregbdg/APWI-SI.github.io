@@ -8,20 +8,20 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Title</th>
-              <th scope="col">Category</th>
-              <th scope="col">File</th>
-              <th scope="col">Action</th>
+              <th scope="col" class="text-center">#</th>
+              <th scope="col" class="text-center">Title</th>
+              <th scope="col" class="text-center">Category</th>
+              <th scope="col" class="text-center">File</th>
+              <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach($moduls as $modul)
                 <tr>
-                    <td>{{ $loop->iteration }}.</td>
-                    <td>{{ $modul->title }}</td>
-                    <td>{{ $modul->articlecategory->name }}</td>
-                    <td><a href="{{ asset( 'storage/' . $modul->file) }}" class="badge bg-success" download="">Download</a></td>
+                    <td class="px-2">{{ $loop->iteration }}.</td>
+                    <td class="px-2">{{ $modul->title }}</td>
+                    <td class="px-2">{{ $modul->articlecategory->name }}</td>
+                    <td class="px-2"><a href="{{ asset( 'storage/' . $modul->file) }}" class="badge bg-success" download="">Download</a></td>
                     <td>   
                         <a href="/dashboard/moduls/{{ $modul->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
                         <form action="/dashboard/moduls/{{ $modul->slug }}" method="POST" class="d-inline">

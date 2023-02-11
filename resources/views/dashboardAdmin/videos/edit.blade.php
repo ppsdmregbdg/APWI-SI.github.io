@@ -40,6 +40,7 @@
             <div class="mb-3">
               <label for="link" class="form-label">Link<span class="text-danger">*</span></label>
               <input type="text" class="form-control  @error('link') is-invalid @enderror" id="link" name="link" value="{{ old('link', $video->link) }}" required>
+              <small class="text-muted">Example: https://www.youtube.com/embed/xxxxxxxx</small>
               @error('link')
                     <div class="invalid-feedback">
                         {{ $message }}

@@ -1,16 +1,18 @@
 <?php
 
-use App\Models\Category;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ElearningController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardArticleController;
-use App\Http\Controllers\DashboardArticlecategoryController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardModulController;
 use App\Http\Controllers\DashboardVideoController;
+use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DashboardArticlecategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,6 @@ Route::get('/', function () {
     return view('dashboard.landing-page.landing', [
         'recentarticles' => Article::latest()->paginate(3)
     ]);
-
 });
 
 // artikel
@@ -42,18 +43,22 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store']);
+Route::group(['middleware' => 'auth'], function () {
+    //Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/dashboard', function(){
-    return view('dashboardAdmin.index');
-})->middleware('auth');
+    //Check-slug
+    Route::get('/dashboard/articles/checkSlug', [DashboardArticleController::class, 'checkSlug']);
+    Route::get('/dashboard/articlecategories/checkSlug', [DashboardArticlecategoryController::class, 'checkSlug']);
 
-//Check-slug
-Route::get('/dashboard/articles/checkSlug', [DashboardArticleController::class, 'checkSlug']);
-Route::get('/dashboard/articlecategories/checkSlug', [DashboardArticlecategoryController::class, 'checkSlug']);
+    //Menu
+    Route::resource('/dashboard/articles', DashboardArticleController::class);
+    Route::resource('/dashboard/articlecategories', DashboardArticlecategoryController::class)->except('show');
+    Route::resource('/dashboard/moduls', DashboardModulController::class)->except('show');
+    Route::resource('/dashboard/admins', DashboardAdminController::class);
+    Route::resource('/dashboard/videos', DashboardVideoController::class);
 
-Route::resource('/dashboard/articles', DashboardArticleController::class)->middleware('auth');
-Route::resource('/dashboard/articlecategories', DashboardArticlecategoryController::class)->middleware('auth')->except('show');
-Route::resource('/dashboard/moduls', DashboardModulController::class)->middleware('auth')->except('show');
-Route::resource('/dashboard/videos', DashboardVideoController::class)->middleware('auth');
+    //Change-password
+    Route::get('/dashboard.admins.editPassword', [ChangePasswordController::class, 'index']);
+    Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
+});
